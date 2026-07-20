@@ -32,11 +32,13 @@ body{
 }
 .serif{font-family:'Noto Serif SC',serif;}
 .app{display:block;min-height:720px;max-width:480px;margin:0 auto;}
-.top-area{flex-shrink:0;padding-top:env(safe-area-inset-top,0);}
+.top-area{padding-top:env(safe-area-inset-top,0);}
 .page-header{text-align:center;padding:24px 20px 14px;}
 .page-title{font-size:22px;font-weight:300;color:var(--text);letter-spacing:2px;}
 .page-sub{font-size:10px;color:var(--text-dim);letter-spacing:2.5px;margin-top:5px;text-transform:uppercase;}
 .tab-bar{display:flex;position:relative;border-bottom:1px solid rgba(255,255,255,0.04);padding:0 24px;margin-top:4px;}
+/* MiniAPP 保底：即使脚本尚未执行，也先显示网页标题与内容容器。 */
+.top-area{display:block!important;visibility:visible!important;opacity:1!important;}
 .tab{flex:1;text-align:center;padding:12px 0 13px;font-size:13px;color:var(--text-dim);letter-spacing:.5px;cursor:pointer;transition:color .2s;position:relative;user-select:none;}
 .tab.active{color:var(--text);}
 .tab-line{position:absolute;bottom:-1px;height:1.5px;background:rgba(200,220,255,0.6);border-radius:2px 2px 0 0;transition:left .3s cubic-bezier(.4,0,.2,1),width .3s cubic-bezier(.4,0,.2,1);left:24px;width:calc(50% - 24px);}
