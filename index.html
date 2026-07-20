@@ -21,18 +21,17 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;color:inherit!important;}
 html{color:#e8f0ff!important;}
-html,body{height:100%;overflow:hidden;}
+/* 不依赖动态视口单位：部分 MiniAPP WebView 会把 vh/dvh/svh 计算异常，造成整页内容被裁成 0 高度。 */
+html,body{min-height:100%;height:auto;overflow:auto;}
 body{
   font-family:'Noto Sans SC',sans-serif;
   background:linear-gradient(160deg,var(--bg-from) 0%,var(--bg-mid) 50%,var(--bg-to) 100%) !important;
   background-color:#0d1b3e !important;
   background-attachment:fixed;
-  color:var(--text) !important;height:100%;overflow:hidden;
+  color:var(--text) !important;min-height:720px;overflow:auto;
 }
 .serif{font-family:'Noto Serif SC',serif;}
-.app{display:flex;flex-direction:column;height:100vh;min-height:100vh;max-width:480px;margin:0 auto;}
-/* MiniAPP WebView 对 100dvh 会错误计算为 0，不能用它覆盖 100vh。 */
-@supports (height: 100svh){.app{height:100svh;min-height:100svh;}}
+.app{display:block;min-height:720px;max-width:480px;margin:0 auto;}
 .top-area{flex-shrink:0;padding-top:env(safe-area-inset-top,0);}
 .page-header{text-align:center;padding:24px 20px 14px;}
 .page-title{font-size:22px;font-weight:300;color:var(--text);letter-spacing:2px;}
