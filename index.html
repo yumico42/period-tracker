@@ -30,7 +30,9 @@ body{
   color:var(--text) !important;height:100%;overflow:hidden;
 }
 .serif{font-family:'Noto Serif SC',serif;}
-.app{display:flex;flex-direction:column;height:100vh;height:100dvh;max-width:480px;margin:0 auto;}
+.app{display:flex;flex-direction:column;height:100vh;min-height:100vh;max-width:480px;margin:0 auto;}
+/* MiniAPP WebView 对 100dvh 会错误计算为 0，不能用它覆盖 100vh。 */
+@supports (height: 100svh){.app{height:100svh;min-height:100svh;}}
 .top-area{flex-shrink:0;padding-top:env(safe-area-inset-top,0);}
 .page-header{text-align:center;padding:24px 20px 14px;}
 .page-title{font-size:22px;font-weight:300;color:var(--text);letter-spacing:2px;}
